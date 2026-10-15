@@ -196,7 +196,7 @@ export default function Settings() {
 
     <div className="dim small" style={{ textAlign: 'center', marginTop: 4, lineHeight: 1.6 }}>
       Elite Fit · {t('based on')} <a href="https://github.com/DuarteSantos8/openGym" target="_blank" rel="noopener">openGym</a> · {t('free & open source (AGPL v3)')}<br />
-      <a href="https://github.com/ex6tense/elitefit-app" target="_blank" rel="noopener">{t('source code')}</a> · exercise data: hasaneyldrm/exercises-dataset (CC)
+      <a href="https://github.com/ex6tense/openGym" target="_blank" rel="noopener">{t('source code')}</a> · exercise data: hasaneyldrm/exercises-dataset (CC)
     </div>
   </div>
 }

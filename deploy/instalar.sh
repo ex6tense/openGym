@@ -2,7 +2,7 @@
 # Instalación inicial de la Elite Fit App en un LXC Debian 13 limpio.
 # Uso (como root):
 #   apt-get update && apt-get install -y git
-#   git clone https://github.com/ex6tense/elitefit-app.git /opt/elitefit-app
+#   git clone https://github.com/ex6tense/openGym.git /opt/elitefit-app
 #   bash /opt/elitefit-app/deploy/instalar.sh
 set -euo pipefail
 
