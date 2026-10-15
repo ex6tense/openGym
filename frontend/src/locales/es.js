@@ -554,4 +554,8 @@ export default {
   '{0} sets of {1} — time to add weight or move to a harder variation.': '{0} series de {1}: toca añadir peso o pasar a una variante más difícil.',
   '{0} per side': '{0} por lado',
   'You still log the total: {0} is {1} per side.': 'Sigues registrando el total: {0} son {1} por lado.',
+  'your fingerprint, face or PIN': 'tu huella, rostro o PIN',
+  'fingerprint or face unlock': 'huella o desbloqueo facial',
+  'based on': 'basado en',
+  'source code': 'código fuente',
 }

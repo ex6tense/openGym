@@ -1,0 +1,24 @@
+[Unit]
+Description=Elite Fit App (API de openGym)
+After=network.target
+
+[Service]
+Type=simple
+User=elitefit
+WorkingDirectory=/opt/elitefit-app/api
+EnvironmentFile=/opt/elitefit-app/.env
+Environment=NODE_ENV=production
+Environment=PORT=3000
+Environment=DATA_DIR=/opt/elitefit-app/data
+ExecStart=/usr/bin/node server.js
+Restart=always
+RestartSec=5
+
+# Endurecimiento básico
+NoNewPrivileges=true
+ProtectSystem=full
+ProtectHome=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

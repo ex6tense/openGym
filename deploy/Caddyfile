@@ -1,0 +1,28 @@
+# /etc/caddy/Caddyfile — Elite Fit App
+# Todo en un mismo origen (obligatorio para las passkeys): app + /api + imágenes.
+# El HTTPS lo pone Cloudflare Tunnel, aquí basta con :80.
+:80 {
+	encode zstd gzip
+
+	# API → servicio Node (elitefit-app.service)
+	handle /api/* {
+		reverse_proxy 127.0.0.1:3000
+	}
+
+	# Imágenes y GIFs de ejercicios: nunca cambian → caché larga
+	@media path /img/* /gif/*
+	handle @media {
+		root * /opt/elitefit-app/media
+		header Cache-Control "public, max-age=2592000, immutable"
+		file_server
+	}
+
+	# App (React compilada) con fallback de SPA
+	handle {
+		root * /opt/elitefit-app/frontend/dist
+		@shell path *.js *.css *.json *.html /
+		header @shell Cache-Control "no-cache, must-revalidate"
+		try_files {path} /index.html
+		file_server
+	}
+}
