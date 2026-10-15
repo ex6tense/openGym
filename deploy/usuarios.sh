@@ -3,6 +3,6 @@
 # Uso (en el servidor):  bash /opt/elitefit-app/deploy/usuarios.sh
 set -euo pipefail
 node -e '
-const db = JSON.parse(require("fs").readFileSync("/opt/elitefit-app/data/db.json", "utf8"));
+const db = JSON.parse(require("fs").readFileSync("/var/lib/elitefit-app/db.json", "utf8"));
 for (const u of db.users) console.log(u.id + "  " + u.name + (u.disabled ? "  (desactivado)" : ""));
 '

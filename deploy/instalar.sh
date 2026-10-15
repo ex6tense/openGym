@@ -24,7 +24,6 @@ chmod 600 "$APP/.env"
 
 echo "→ Instalando servicio y Caddy…"
 cp "$APP/deploy/elitefit-app.service" /etc/systemd/system/
-cp "$APP/deploy/Caddyfile" /etc/caddy/Caddyfile
 systemctl daemon-reload
 systemctl enable elitefit-app caddy
 

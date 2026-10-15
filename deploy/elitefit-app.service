@@ -9,7 +9,7 @@ WorkingDirectory=/opt/elitefit-app/api
 EnvironmentFile=/opt/elitefit-app/.env
 Environment=NODE_ENV=production
 Environment=PORT=3000
-Environment=DATA_DIR=/opt/elitefit-app/data
+Environment=DATA_DIR=/var/lib/elitefit-app
 ExecStart=/usr/bin/node server.js
 Restart=always
 RestartSec=5

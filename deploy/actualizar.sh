@@ -10,8 +10,15 @@ if [ -d .git ]; then
   echo "→ Descargando cambios de GitHub…"
   git -c safe.directory="$APP" pull --ff-only
 fi
-mkdir -p "$APP/data"
 chown -R elitefit:elitefit "$APP"
+
+# Datos de usuarios: fuera del repo, para que un git pull nunca los toque
+install -d -o elitefit -g elitefit -m 700 /var/lib/elitefit-app
+
+# Servicio y Caddy siempre según la versión del repo
+cp "$APP/deploy/elitefit-app.service" /etc/systemd/system/
+cp "$APP/deploy/Caddyfile" /etc/caddy/Caddyfile
+systemctl daemon-reload
 
 echo "→ Instalando dependencias del API…"
 sudo -u elitefit npm --prefix "$APP/api" ci --omit=dev --no-audit --no-fund
